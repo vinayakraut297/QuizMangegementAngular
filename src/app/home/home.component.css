@@ -1,0 +1,98 @@
+/* General styling for the home container */
+.home-container {
+  width: 100vw;
+  text-align: center;
+  margin: 0;
+  /* Remove margin */
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+  /* Text color changed to white */
+  background: url('/assets/images/home-background.jpg') no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  padding: 40px;
+  /* Padding for content spacing */
+  box-sizing: border-box;
+  /* Include padding in height calculation */
+}
+
+/* Remove default margin and padding for the body and html */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Styling for the text at the top */
+.home-container p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Description under the main heading */
+.description {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  font-weight: 300;
+  color: #f1f1f1;
+}
+
+/* Button container to arrange buttons horizontally */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Styling for teacher buttons */
+.teacher-btn {
+  padding: 15px 30px;
+  font-size: 1rem;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background: linear-gradient(45deg, #1E90FF, #00BFFF);
+}
+
+.teacher-btn:hover {
+  background: linear-gradient(45deg, #00BFFF, #1E90FF);
+}
+
+/* Styling for student buttons */
+.student-btn {
+  padding: 15px 30px;
+  font-size: 1rem;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background: linear-gradient(45deg, #28a745, #218838);
+}
+
+.student-btn:hover {
+  background: linear-gradient(45deg, #218838, #28a745);
+}
+
+/* Making the buttons stack vertically for smaller screens */
+@media screen and (max-width: 768px) {
+  .button-container {
+    flex-direction: column;
+  }
+
+  .teacher-btn,
+  .student-btn {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+/* Additional styling for buttons */
+.button-container button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}

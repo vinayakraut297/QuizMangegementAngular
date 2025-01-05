@@ -1,0 +1,92 @@
+/* Styling for the question container */
+.question-container {
+  width: 100vw;
+  height: 100vh;
+  padding: 40px;
+  box-sizing: border-box;
+  background: url('/assets/images/home-background.jpg') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+
+/* Styling for the content inside the question container */
+.question-content {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  max-width: 800px;
+  width: 100%;
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+/* Styling for the question text */
+.question-content p {
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* Styling for the options */
+.question-content ol {
+  padding-left: 20px;
+}
+
+.question-content li {
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+
+.question-content li button {
+  color: white;
+  background: linear-gradient(45deg, #9bb09d, #4ed955);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+
+.selected {
+  background-color: #011001; /* Distinct dark green for selection */
+  color: white; /* Text color turns black when selected */
+  transform: scale(1.50); /* Slight enlargement */
+  transition: background-color 1.3s, color 1.3s, transform 0.3s ;
+}
+
+/* Styling for navigation buttons */
+.navigation-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  background: linear-gradient(45deg, #9bb09d, #4ed955);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background: linear-gradient(45deg, #43A047, #041804);
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button[disabled] {
+  background: #ccc;
+  color: white;
+  cursor: not-allowed;
+}

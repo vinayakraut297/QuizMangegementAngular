@@ -1,0 +1,24 @@
+<!-- <p>Question works!</p> -->
+<div class="question-container">
+  <div class="question-content">
+    <h1>Questions for Quiz: {{ quizTitle }}</h1>
+
+    <div *ngIf="filteredQuestions.length > 0">
+      <p>{{ filteredQuestions[currentIndex]?.text }}</p>
+      <ol>
+        <li *ngFor="let option of filteredQuestions[currentIndex]?.options; let i = index">
+          <button (click)="selectOption(filteredQuestions[currentIndex], i)"
+            [class.selected]="selectedOption[filteredQuestions[currentIndex]?.id] === i">
+            {{ option }}
+          </button>
+        </li>
+      </ol>
+    </div>
+
+    <div class="navigation-buttons">
+      <button (click)="previousQuestion()" [disabled]="currentIndex === 0">Previous</button>
+      <button (click)="nextQuestion()" [disabled]="currentIndex === filteredQuestions.length - 1">Next</button>
+    </div>
+    <button (click)="submitAnswers()">Submit Answers</button>
+  </div>
+</div>

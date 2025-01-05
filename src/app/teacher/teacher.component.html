@@ -1,0 +1,44 @@
+<div class="background-container">
+  <div class="teacher-auth-container">
+    <h1>Teacher Portal</h1>
+
+    <div class="toggle-buttons">
+      <button [class.active]="isLogin" (click)="showLogin()">
+        Login
+      </button>
+      <button [class.active]="!isLogin" (click)="showRegister()">
+        Register
+      </button>
+    </div>
+
+    <form *ngIf="isLogin" (ngSubmit)="onSubmit()" class="teacher-form">
+      <h2>Teacher Login</h2>
+      <label for="email">Email:</label>
+      <input type="text" id="email" [(ngModel)]="loginData.email" name="email" placeholder="Enter Teacher ID" required>
+      <br>
+      <label for="teacherpass">Password:</label>
+      <input type="password" id="teacherpass" [(ngModel)]="loginData.password" name="password"
+        placeholder="Enter Password" required>
+      <br>
+      <button type="submit">Login</button>
+      <p *ngIf="registerData.errorMessage" style="color: red;">{{ registerData.errorMessage }}</p>
+    </form>
+
+    <form *ngIf="!isLogin" (ngSubmit)="onRegisterSubmit()" class="teacher-form">
+      <h2>Teacher Registration</h2>
+      <label for="registerName">Name:</label>
+      <input type="text" id="registerName" [(ngModel)]="registerData.name" name="registerName"
+        placeholder="Enter your name" required>
+      <label for="registerTeacherId">ID:</label>
+      <input type="text" id="email" [(ngModel)]="registerData.email" name="email" placeholder="Enter Teacher Email"
+        required>
+      <br>
+      <label for="registerTeacherPass">Password:</label>
+      <input type="password" id="registerTeacherPass" [(ngModel)]="registerData.password" name="password"
+        placeholder="Enter Password" required>
+      <br>
+      <button type="submit">Register</button>
+      <p *ngIf="registerData.errorMessage" style="color: red;">{{ registerData.errorMessage }}</p>
+    </form>
+  </div>
+</div>

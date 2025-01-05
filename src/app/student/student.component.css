@@ -1,0 +1,115 @@
+/* Background container for the student component */
+.background-container {
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  background: url('/assets/images/login-register.jpg') no-repeat center center fixed; /* Background image settings */
+  background-size: cover; /* Ensures the background image covers the viewport */
+  display: flex; /* Flexbox for centering content */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  margin: 0; /* Remove default body margin */
+  padding: 0;
+}
+
+/* Styling for the student authentication container */
+.student-auth-container {
+  width: 90%; /* Allow container to take 90% of the width on smaller screens */
+  max-width: 450px; /* Set a maximum width */
+  padding: 30px; /* Increase padding for better spacing */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 10px; /* Slightly larger rounded corners */
+  text-align: center; /* Center text inside the container */
+  background-color: rgba(249, 249, 249, 0.9); /* Semi-transparent white background */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Add a shadow for better visibility */
+}
+
+/* Header styling */
+h1 {
+  font-size: 2.5rem; /* Increase font size for the heading */
+  color: #333; /* Dark gray color */
+  margin-bottom: 25px; /* Add spacing below the heading */
+}
+
+/* Toggle buttons for login/register */
+.toggle-buttons {
+  display: flex; /* Arrange buttons in a row */
+  justify-content: center; /* Center buttons horizontally */
+  margin-bottom: 25px; /* Space below the buttons */
+}
+
+.toggle-buttons button {
+  padding: 12px 25px; /* Increase padding for better click area */
+  margin: 0 10px; /* Add more spacing between buttons */
+  font-size: 1.1rem; /* Slightly larger font size */
+  border: 1px solid #007bff; /* Blue border */
+  border-radius: 8px; /* Slightly larger rounded corners */
+  background-color: #007bff; /* Blue background */
+  color: white; /* White text */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition effect */
+}
+
+.toggle-buttons button.active {
+  background-color: #0056b3; /* Darker blue for active state */
+}
+
+.toggle-buttons button:hover {
+  background-color: #0056b3; /* Hover effect */
+}
+
+/* Form styling */
+.auth-form {
+  text-align: left; /* Align form labels and inputs to the left */
+}
+
+.auth-form label {
+  display: block; /* Each label occupies its line */
+  margin-bottom: 8px; /* Add spacing below labels */
+  font-weight: bold; /* Bold text for emphasis */
+}
+
+.auth-form input {
+  width: 100%; /* Full width inputs */
+  padding: 12px; /* Increase padding */
+  margin-bottom: 20px; /* Add spacing below inputs */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 8px; /* Rounded corners */
+  font-size: 1.1rem; /* Slightly larger font size */
+}
+
+.auth-form button {
+  width: 100%; /* Full width button */
+  padding: 12px; /* Increase padding for better click area */
+  background-color: #28a745; /* Green background */
+  color: white; /* White text */
+  border: none; /* Remove border */
+  border-radius: 8px; /* Rounded corners */
+  font-size: 1.1rem; /* Larger font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition effect */
+}
+
+.auth-form button:hover {
+  background-color: #218838; /* Darker green for hover state */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .student-auth-container {
+    max-width: 90%; /* Reduce max width on smaller screens */
+    padding: 20px; /* Adjust padding */
+  }
+
+  h1 {
+    font-size: 2rem; /* Reduce font size for smaller screens */
+  }
+
+  .toggle-buttons button {
+    padding: 10px 15px; /* Adjust padding for buttons */
+    font-size: 1rem; /* Adjust font size */
+  }
+
+  .auth-form button {
+    font-size: 1rem; /* Adjust button font size */
+  }
+}

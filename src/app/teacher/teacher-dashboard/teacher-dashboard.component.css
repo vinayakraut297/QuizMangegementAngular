@@ -1,0 +1,144 @@
+/* General styling for the page container */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9; /* Light background for a clean look */
+    color: #333; /* Neutral text color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    height: 100%;
+    overflow: hidden; /* Prevent overflow on zoom */
+}
+
+/* Styling for the background container */
+.teacher-container {
+    width: 100vw;
+    text-align: center;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    background: url('/assets/images/home-background.jpg') no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevent overflow */
+}
+
+/* Centering the quiz-page container */
+.quiz-page-container {
+    display: flex;
+    justify-content: space-between; /* Spread the forms left and right */
+    align-items: flex-start; /* Align forms to the top */
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    gap: 20px; /* Add gap between the forms */
+}
+
+/* Container for the create quiz section */
+.create-quiz-container,
+.add-question-container {
+    background: rgba(255, 255, 255, 0.6); /* Transparent white background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 20px 30px;
+    margin: 20px 0;
+    width: 48%; /* Set width to 48% to allow space for both forms */
+    box-sizing: border-box;
+    backdrop-filter: blur(8px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(8px); /* Frosted glass effect for Safari */
+}
+
+/* Headings for sections */
+.create-quiz-container h2,
+.add-question-container h2 {
+    font-size: 1.8rem;
+    color: #4CAF50; /* Green for primary headings */
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 5px;
+}
+
+/* Labels for form inputs */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Input fields styling */
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Buttons styling */
+button {
+    background: linear-gradient(45deg, #4CAF50, #43A047); /* Green gradient */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    margin-right: 10px;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #43A047, #4CAF50);
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+button:active {
+    transform: scale(0.95); /* Click effect */
+}
+
+button:last-child {
+    background: linear-gradient(45deg, #FF5722, #E64A19); /* Red gradient for delete */
+}
+
+button:last-child:hover {
+    background: linear-gradient(45deg, #E64A19, #FF5722);
+}
+
+/* Make the page responsive */
+@media (max-width: 768px) {
+    .quiz-page-container {
+        flex-direction: column; /* Stack forms vertically on smaller screens */
+        align-items: center;
+    }
+
+    .create-quiz-container,
+    .add-question-container {
+        width: 90%; /* Take up 90% of the screen width */
+        margin-bottom: 20px; /* Add space between forms */
+    }
+
+    button {
+        width: 100%; /* Make buttons full width */
+        margin-bottom: 10px;
+    }
+}
