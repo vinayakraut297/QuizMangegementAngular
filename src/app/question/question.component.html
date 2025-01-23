@@ -1,24 +1,56 @@
-<!-- <p>Question works!</p> -->
-<div class="question-container">
-  <div class="question-content">
-    <h1>Questions for Quiz: {{ quizTitle }}</h1>
 
-    <div *ngIf="filteredQuestions.length > 0">
-      <p>{{ filteredQuestions[currentIndex]?.text }}</p>
-      <ol>
-        <li *ngFor="let option of filteredQuestions[currentIndex]?.options; let i = index">
-          <button (click)="selectOption(filteredQuestions[currentIndex], i)"
-            [class.selected]="selectedOption[filteredQuestions[currentIndex]?.id] === i">
-            {{ option }}
-          </button>
-        </li>
-      </ol>
-    </div>
 
-    <div class="navigation-buttons">
-      <button (click)="previousQuestion()" [disabled]="currentIndex === 0">Previous</button>
-      <button (click)="nextQuestion()" [disabled]="currentIndex === filteredQuestions.length - 1">Next</button>
-    </div>
-    <button (click)="submitAnswers()">Submit Answers</button>
-  </div>
-</div>
+
+      <div class="question-container">
+        <div class="question-content">
+          <h1>Questions for Quiz: {{ quizTitle }}</h1>
+      
+          <div *ngIf="filteredQuestions.length > 0 && !quizResult">
+            <p>{{ filteredQuestions[currentIndex]?.text }}</p>
+      
+            <ol>
+              <li *ngFor="let option of filteredQuestions[currentIndex]?.options; let i = index">
+                <button (click)="selectOption(filteredQuestions[currentIndex], i)"
+                        [class.selected]="selectedOption[filteredQuestions[currentIndex]?.id] === i"
+                        [disabled]="quizResult !== null">
+                  {{ option }}
+                </button>
+              </li>
+            </ol>
+      
+            <div class="navigation-buttons">
+              <button (click)="previousQuestion()" [disabled]="currentIndex === 0">Previous</button>
+              <button (click)="nextQuestion()" [disabled]="currentIndex === filteredQuestions.length - 1">Next</button>
+            </div>
+            <button (click)="submitAnswers()" *ngIf="quizResult === null">Submit Answers</button>
+            <!-- <button (click)="getQuizResults()" *ngIf="quizResult === null">Show Answer</button> -->
+          </div>
+      
+          <div class="result-container" *ngIf="quizResult">
+            <!-- <h2 *ngIf="quizResult.pass; else failMessage">🎉 Congratulations! You passed the quiz.</h2> -->
+            <!-- <ng-template #failMessage> -->
+              <!-- <h2>😞 Sorry, you failed the quiz. Better luck next time!</h2> -->
+              <!-- <h2>You can try the quiz again or view the detailed results to improve your performance.</h2> -->
+            <!-- </ng-template> -->
+      
+            <!-- <h3>Question Details:</h3> -->
+            <ul>
+              <li *ngFor="let result of quizResult.results; let i = index">
+                <p><strong>Question {{ i + 1 }}:</strong> {{ result.text }}</p>
+                <p>
+                  <strong>Your Answer:</strong>
+                  <span [class.correct]="result.correct" [class.incorrect]="!result.correct">
+                    {{ result.userAnswer || 'No Answer' }}
+                  </span>
+                </p>
+                <p><strong>Correct Answer:</strong> {{ result.correctAnswer }}</p>
+              </li>
+            </ul>
+      
+            <button (click)="resetQuiz()">Retry Quiz</button>
+            <button (click)="SeeResult()">SeeResult</button>
+            <button (click)="goToHome()">Go to Home</button>
+          </div>
+        </div>
+      </div>
+      

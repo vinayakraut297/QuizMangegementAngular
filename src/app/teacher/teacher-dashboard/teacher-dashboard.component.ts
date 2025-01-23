@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { QuizService } from 'src/app/quiz.service';
 
 @Component({
@@ -19,8 +20,13 @@ export class TeacherDashboardComponent {
   newQuestionOptions: string[] = ['', '', '', ''];
   newCorrectAnswerIndex: number = 0;
 
-  constructor(private quizService: QuizService) {}
+  constructor(private quizService: QuizService,
+      private router: Router) {}
+  goToHome(): void {
 
+    this.router.navigate(['/home']);
+  }
+  
   onCreateQuiz() {
     this.quizService.createQuiz(this.quizData).subscribe(
       (response) => {
@@ -67,9 +73,11 @@ export class TeacherDashboardComponent {
 
     this.quizService.addQuizByTitle(questionData).subscribe(
       (response) => {
+        alert('Question added successfully');
         console.log('Question added successfully', response);
       },
       (error) => {
+        alert('Error adding question');
         console.error('Error adding question:', error);
       }
     );

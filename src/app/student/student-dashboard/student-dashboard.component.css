@@ -3,14 +3,17 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9; /* Light background for a clean look */
-    color: #333; /* Neutral text color */
+    background-color: #f4f4f9;
+    /* Light background for a clean look */
+    color: #333;
+    /* Neutral text color */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     height: 100%;
-    overflow: hidden; /* Prevent scrolling */
+    overflow: hidden;
+    /* Prevent scrolling */
 }
 
 /* Styling for the student-dashboard container */
@@ -27,14 +30,17 @@ body {
     box-sizing: border-box;
     display: flex;
     justify-content: center;
-    flex-direction: column; /* Center content vertically and stack items */
-    align-items: center; /* Center content horizontally */
+    flex-direction: column;
+    /* Center content vertically and stack items */
+    align-items: center;
+    /* Center content horizontally */
 }
 
 /* Heading styling for Available Quizzes */
 .student-dashboard-container h2 {
     font-size: 2rem;
-    color: #4CAF50; /* Green for primary headings */
+    color: #4CAF50;
+    /* Green for primary headings */
     margin-bottom: 20px;
     text-align: center;
 }
@@ -42,52 +48,70 @@ body {
 /* Styling for the quiz list container */
 .quiz-list-container {
     width: 100%;
-    max-width: 1000px; /* Maximum width */
-    min-width: 300px; /* Ensure a minimum width */
+    max-width: 1000px;
+    /* Maximum width */
+    min-width: 300px;
+    /* Ensure a minimum width */
     padding: 40px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
     box-sizing: border-box;
     text-align: center;
-    color: #fff; /* White text color */
-    overflow-y: auto; /* Allow vertical scrolling if content overflows */
-    max-height: 80vh; /* Set a max height to the container (adjust as needed) */
+    color: #fff;
+    /* White text color */
+    overflow-y: auto;
+    /* Allow vertical scrolling if content overflows */
+    max-height: 80vh;
+    /* Set a max height to the container (adjust as needed) */
 }
 
 /* Styling for each quiz card */
 .quiz-card {
-    background: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
-    border-radius: 8px; /* Rounded corners */
-    padding: 15px; /* Reduced padding to make the card smaller */
-    margin-bottom: 15px; /* Slightly reduced margin */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    background: rgba(255, 255, 255, 0.7);
+    /* Semi-transparent white background */
+    border-radius: 8px;
+    /* Rounded corners */
+    padding: 15px;
+    /* Reduced padding to make the card smaller */
+    margin-bottom: 15px;
+    /* Slightly reduced margin */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow */
     transition: transform 0.3s ease, background-color 0.3s ease;
-    max-width: 580px; /* Set a max width to make the card smaller */
-    margin: 10px auto; /* Center the card and add spacing between them */
+    max-width: 580px;
+    /* Set a max width to make the card smaller */
+    margin: 10px auto;
+    /* Center the card and add spacing between them */
 }
 
 /* Hover effect for quiz cards */
 .quiz-card:hover {
-    transform: scale(1.05); /* Slight zoom effect */
-    background-color: rgba(255, 255, 255, 0.9); /* Darken background on hover */
+    transform: scale(1.05);
+    /* Slight zoom effect */
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Darken background on hover */
 }
 
 /* Quiz title and description styling */
 .quiz-card h3 {
     font-size: 1.6rem;
-    color: #333; /* Dark color for titles */
+    color: #333;
+    /* Dark color for titles */
     margin-bottom: 10px;
 }
 
 .quiz-card p {
     font-size: 1rem;
-    color: #555; /* Gray color for descriptions */
+    color: #555;
+    /* Gray color for descriptions */
     margin-bottom: 15px;
 }
 
 /* Button styling */
 .quiz-card button {
-    background: linear-gradient(45deg, #4CAF50, #43A047); /* Green gradient */
+    background: linear-gradient(45deg, #4CAF50, #43A047);
+    /* Green gradient */
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -99,11 +123,13 @@ body {
 
 .quiz-card button:hover {
     background: linear-gradient(45deg, #43A047, #4CAF50);
-    transform: scale(1.05); /* Slight zoom effect */
+    transform: scale(1.05);
+    /* Slight zoom effect */
 }
 
 .quiz-card button:active {
-    transform: scale(0.95); /* Click effect */
+    transform: scale(0.95);
+    /* Click effect */
 }
 
 /* Make the page responsive */
@@ -117,7 +143,31 @@ body {
         margin-bottom: 20px;
     }
 
+
     button {
-        width: 100%; /* Make buttons full width */
+        width: 100%;
     }
+
+    .green-button {
+        background: linear-gradient(45deg, #43A047, #81C784);
+        /* Green gradient */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 12px 20px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.2s;
+    }
+
+    .green-button:hover {
+        background: linear-gradient(45deg, #2E7D32, #4CAF50);
+        /* Darker green on hover */
+        transform: scale(1.05);
+    }
+
+    .green-button:active {
+        transform: scale(0.95);
+    }
+
 }

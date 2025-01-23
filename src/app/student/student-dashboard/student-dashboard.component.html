@@ -1,8 +1,10 @@
 <!-- <p>student-dashboard works!</p> -->
 <div class="student-dashboard-container">
+    
     <!-- <h2>Welcome, {{ username }}!</h2>  -->
     <h2>Available Quizzes</h2>
-    <div class="quiz-list-container">
+    <button (click)="goToHome()" class="green-button">Logout</button>
+        <div class="quiz-list-container">
         <div *ngFor="let quiz of quizzes" class="quiz-card">
             <h3>{{ quiz.title }}</h3>
             <p>{{ quiz.description }}</p>

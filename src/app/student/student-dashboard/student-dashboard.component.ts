@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Quiz } from 'src/app/quiz.model';
 import { QuizService } from 'src/app/quiz.service';
 import { StudentService } from 'src/app/student.service';
@@ -11,9 +12,9 @@ import { StudentService } from 'src/app/student.service';
 
 export class StudentDashboardComponent implements OnInit {
   username: string = '';
-  quizzes: Quiz[] = []; 
+  quizzes: Quiz[] = [];
 
-  constructor(private quizService: QuizService,private studentService: StudentService) {}
+  constructor(private quizService: QuizService, private studentService: StudentService, private router: Router) { }
 
   ngOnInit(): void {
     this.username = this.studentService.getUsername();
@@ -21,6 +22,11 @@ export class StudentDashboardComponent implements OnInit {
       (data) => (this.quizzes = data),
       (error) => console.error('Error fetching quizzes:', error)
     );
+  }
+
+  goToHome(): void {
+
+    this.router.navigate(['/home']);
   }
 
 }
