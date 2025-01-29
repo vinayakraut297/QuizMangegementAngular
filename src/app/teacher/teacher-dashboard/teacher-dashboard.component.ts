@@ -21,12 +21,18 @@ export class TeacherDashboardComponent {
   newCorrectAnswerIndex: number = 0;
 
   constructor(private quizService: QuizService,
-      private router: Router) {}
+    private router: Router) { }
   goToHome(): void {
 
     this.router.navigate(['/home']);
   }
-  
+  addAnotherQuestion(): void {
+    this.quizData.questions.push({
+      text: '',
+      options: ['', '', '', ''],
+      correctAnswerIndex: 0,
+    });
+  }
   onCreateQuiz() {
     this.quizService.createQuiz(this.quizData).subscribe(
       (response) => {
@@ -40,28 +46,43 @@ export class TeacherDashboardComponent {
         };
       },
       (error) => {
+        if (error.status === 400) {
+          alert('This quiz already exists!');
+        } else {
+          alert('Error creating quiz. Please try again.');
+        }
         console.error('Error creating quiz:', error);
       }
     );
   }
 
+
   onDeleteQuiz() {
-    this.quizService.createQuiz(this.quizData).subscribe(
-      (response) => {
+    if (!this.quizData.title) {
+      alert('Please enter a quiz title to delete.');
+      return;
+    }
+
+    this.quizService.deleteQuizByTitle(this.quizData.title).subscribe(
+      (response: any) => {
         alert('Quiz deleted successfully!');
-        this.quizData = {
-          title: '',
-          description: '',
-          questions: [
-            { text: '', options: ['', '', '', ''], correctAnswerIndex: 0 },
-          ],
-        };
+        this.quizData.title = '';
       },
-      (error) => {
-        console.error('Error deleting quiz:', error);
+      (error: any) => {
+        if (error.status === 500) {
+          alert('This quiz contains questions, so it cannot be deleted!');
+        }
+        else if (error.status === 404) {
+          alert('Quiz not found!');
+        }
+        else {
+          alert('Error deleting quiz!');
+        }
+        console.error('Error:', error);
       }
     );
   }
+
 
   addQuestion(): void {
     const questionData = {
@@ -82,7 +103,15 @@ export class TeacherDashboardComponent {
       }
     );
   }
-
+  resetQuizFields(): void {
+    this.quizData = {
+      title: '',
+      description: '',
+      questions: [
+        { text: '', options: ['', '', '', ''], correctAnswerIndex: 0 },
+      ],
+    };
+  }
   submitQuiz() {
     this.quizService.addQuiz(this.quizData).subscribe(
       (response) => {

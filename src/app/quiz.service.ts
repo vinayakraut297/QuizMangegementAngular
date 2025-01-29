@@ -35,6 +35,9 @@ export class QuizService {
     return this.http.post(`${this.apiUrl}/api/quiz/addQuizByTitle`, quizData, { responseType: 'text' as 'json' });
   }
 
+ deleteQuizByTitle(title: string): Observable<string> {
+    return this.http.delete<string>(`${this.apiUrl}/api/quiz/deleteByTitle/${title}`, { responseType: 'text' as 'json' });
+  }
 
 
 }

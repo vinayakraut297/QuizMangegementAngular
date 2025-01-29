@@ -13,7 +13,7 @@
       </form>
     </div>
 
-    <div class="add-question-container">
+    <!-- <div class="add-question-container">
       <h2>Add Question</h2>
       <form (ngSubmit)="addQuestion()">
         <label>Quiz Title:</label>
@@ -31,4 +31,33 @@
       </form>
     </div>
   </div>
+</div> -->
+
+
+<div class="add-question-container">
+  <h2>Add Question</h2>
+  <form (ngSubmit)="addQuestion()">
+    <label>Quiz Title:</label>
+    <input type="text" [(ngModel)]="quizData.title" name="quizTitle" required />
+
+    <div *ngFor="let question of quizData.questions; let i = index">
+      <label>Question Text:</label>
+      <input type="text" [(ngModel)]="question.text" [name]="'questionText' + i" required />
+
+      <label>Options:</label>
+      <input type="text" [(ngModel)]="question.options[0]" [name]="'option0' + i" required />
+      <input type="text" [(ngModel)]="question.options[1]" [name]="'option1' + i" required />
+      <input type="text" [(ngModel)]="question.options[2]" [name]="'option2' + i" required />
+      <input type="text" [(ngModel)]="question.options[3]" [name]="'option3' + i" required />
+
+      <label>Correct Answer Index:</label>
+      <input type="number" [(ngModel)]="question.correctAnswerIndex" [name]="'correctAnswerIndex' + i" required />
+    </div>
+
+    <!-- <button type="button" (click)="addAnotherQuestion()">Add Another Question</button> -->
+    <button type="button" (click)="resetQuizFields()">Reset Quiz</button>
+    <button type="submit">Add Question</button>
+  </form>
+</div>
+</div>
 </div>

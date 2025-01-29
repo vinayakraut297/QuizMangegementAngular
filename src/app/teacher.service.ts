@@ -19,4 +19,5 @@ export class TeacherService {
     return this.http.post(`${this.apiUrl}/api/teacher/login`, teacherData, { responseType: 'text' as 'json' });
   }
 
+ 
 }
