@@ -104,13 +104,13 @@ export class TeacherDashboardComponent {
     );
   }
   resetQuizFields(): void {
-    this.quizData = {
-      title: '',
-      description: '',
-      questions: [
-        { text: '', options: ['', '', '', ''], correctAnswerIndex: 0 },
-      ],
-    };
+    this.quizData.title = '';
+    this.quizData.description = '';
+    this.quizData.questions = [{ text: '', options: ['', '', '', ''], correctAnswerIndex: 0 }];
+
+    this.newQuestionText = '';
+    this.newQuestionOptions = ['', '', '', ''];
+    this.newCorrectAnswerIndex = 0;
   }
   submitQuiz() {
     this.quizService.addQuiz(this.quizData).subscribe(

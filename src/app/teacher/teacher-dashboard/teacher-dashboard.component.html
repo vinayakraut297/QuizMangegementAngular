@@ -1,7 +1,7 @@
 <div class="teacher-container">
 
   <div class="quiz-page-container">
-    
+
     <div class="create-quiz-container">
       <button (click)="goToHome()">Logout</button>
       <h2>Add Quiz for Student</h2>
@@ -13,7 +13,7 @@
       </form>
     </div>
 
-    <!-- <div class="add-question-container">
+    <div class="add-question-container">
       <h2>Add Question</h2>
       <form (ngSubmit)="addQuestion()">
         <label>Quiz Title:</label>
@@ -27,14 +27,15 @@
         <input type="text" [(ngModel)]="newQuestionOptions[3]" name="option3" required />
         <label>Correct Answer Index:</label>
         <input type="number" [(ngModel)]="newCorrectAnswerIndex" name="correctAnswerIndex" required />
+        <button type="button" (click)="resetQuizFields()">Reset Quiz</button>
         <button type="submit">Add Question</button>
       </form>
     </div>
   </div>
-</div> -->
+</div>
 
 
-<div class="add-question-container">
+<!-- <div class="add-question-container">
   <h2>Add Question</h2>
   <form (ngSubmit)="addQuestion()">
     <label>Quiz Title:</label>
@@ -54,10 +55,10 @@
       <input type="number" [(ngModel)]="question.correctAnswerIndex" [name]="'correctAnswerIndex' + i" required />
     </div>
 
-    <!-- <button type="button" (click)="addAnotherQuestion()">Add Another Question</button> -->
+    <button type="button" (click)="addAnotherQuestion()">Add Another Question</button>
     <button type="button" (click)="resetQuizFields()">Reset Quiz</button>
     <button type="submit">Add Question</button>
   </form>
 </div>
 </div>
-</div>
+</div> -->
